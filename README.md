@@ -1,8 +1,8 @@
 # minetest-openbsd
 
-Example [Minetest](https://minetest.net) server daemon for OpenBSD.
+[Minetest](https://minetest.net) server daemon for OpenBSD.
 
-## Quick start
+## Install 
 
 ```
 doas pkg_add minetest
