@@ -1,6 +1,12 @@
 # minetest-openbsd
 
+Example [Minetest](https://minetest.net) server daemon for OpenBSD.
+
+## Quick start
+
 ```
+doas pkg_add minetest
+
 doas mkdir /var/games/minetest
 
 doas groupadd -g 2000 _minetest
