@@ -30,3 +30,15 @@ doas rcctl enable minetest
 doas rcctl start minetest
 ```
 
+## Change game
+
+```
+doas rcctl stop minetest
+
+doas -u _minetest mkdir /var/games/minetest/games
+
+<Copy or clone the game into the new directory as the _minetest user>
+<Change the --world path and --gameid value in /etc/rc.d/minetest>
+
+doas rcctl start minetest
+```
