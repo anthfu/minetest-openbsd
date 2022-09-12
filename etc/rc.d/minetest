@@ -1,10 +1,12 @@
 #!/bin/ksh
 
-daemon="/usr/local/bin/minetestserver"
-daemon_flags="--config /etc/minetest.conf --logfile /var/games/minetest/minetest.log --world /var/games/minetest/worlds/world"
+daemon="MINETEST_SUBGAME_PATH=/var/games/minetest/games /usr/local/bin/minetestserver"
+daemon_flags="--config /etc/minetest.conf --logfile /var/games/minetest/minetest.log --world /var/games/minetest/worlds/world --gameid minetest"
 daemon_user="_minetest"
 
 . /etc/rc.d/rc.subr
+
+pexp="/usr/local/bin/minetestserver.*"
 
 rc_bg=YES
 rc_reload=NO
