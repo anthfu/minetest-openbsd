@@ -36,10 +36,10 @@ Note that [SQLite](https://www.sqlite.org/) will be the storage engine by defaul
 
 ## Games
 
-Minetest is a voxel game _framework_ that includes a barebones default game, but you'll likely want something like [MineClone2](https://git.minetest.land/MineClone2/MineClone2):
+Minetest is a voxel game _framework_ that includes a barebones default game called "Minetest", but you'll likely want something like [MineClone2](https://git.minetest.land/MineClone2/MineClone2):
 - Create `/var/games/minetest/games`
 - Download a game release and unpack it to `/var/games/minetest/games`
 - Ensure `/var/games/minetest/games` and all contents are owned by `_minetest`
 - Update the `--gameid` parameter in `/etc/rc.d/minetest` to `MineClone2`, for example
+- Update the `--world` path to a new directory
 - Restart the server
-
