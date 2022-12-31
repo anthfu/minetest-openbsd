@@ -2,7 +2,9 @@
 
 [Minetest](https://minetest.net) server daemon for OpenBSD.
 
-## Install 
+## Install
+
+Full Minetest installation steps from `pkg_add` to dedicated user creation:
 
 ```
 doas pkg_add minetest
@@ -23,22 +25,21 @@ _minetest
 
 doas chown _minetest:_minetest /var/games/minetest
 
-doas cp etc/minetest.conf /etc/minetest.conf
-doas cp etc/rc.d/minetest /etc/rc.d/minetest
+doas cp $HOME/minetest-openbsd/etc/minetest.conf /etc/minetest.conf
+doas cp $HOME/minetest-openbsd/etc/rc.d/minetest /etc/rc.d/minetest
 
 doas rcctl enable minetest
 doas rcctl start minetest
 ```
 
-## Change game
+Note that [SQLite](https://www.sqlite.org/) will be the storage engine by default; you may want to switch to [PostgreSQL](https://postgresql.org) for the [Minetest databases that support it](https://wiki.minetest.net/Database_backends).
 
-```
-doas rcctl stop minetest
+## Games
 
-doas -u _minetest mkdir /var/games/minetest/games
+Minetest is a voxel game _framework_ that includes a barebones default game, but you'll likely want something like [MineClone2](https://git.minetest.land/MineClone2/MineClone2):
+- Create `/var/games/minetest/games`
+- Download a game release and unpack it to `/var/games/minetest/games`
+- Ensure `/var/games/minetest/games` and all contents are owned by `_minetest`
+- Update the `--gameid` parameter in `/etc/rc.d/minetest` to `MineClone2`, for example
+- Restart the server
 
-<Copy or clone the game into the new directory as the _minetest user>
-<Change the --world path and --gameid value in /etc/rc.d/minetest>
-
-doas rcctl start minetest
-```
